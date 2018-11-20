@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Details</title>
+
+</head>
+<body>
+    <h1>Delivery Address</h1>
+    <h1>Total Amount Payable is:{{amount_payable}}</h1>
+   <form action="/final_checkout/" method="post">
+{% csrf_token %}
+             Name:<input type="text" name="name">
+             <br>
+             <br>
+             Email:<input type="text" name="email">
+             <br>
+             <br>
+             Address:<input type="text" name="address">
+             <br>
+             <br>
+             Mobile:<input type="text" name="mobile">
+             <br>
+             <br>
+             City:<select name="city">
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                </select>
+
+             <br>
+             <br>
+             Pincode:<input type="text" name="pincode">
+
+
+   <br>
+   <br>
+<button type="submit" value="">Confirm</button>
+ </form>
+</body>
+</html>

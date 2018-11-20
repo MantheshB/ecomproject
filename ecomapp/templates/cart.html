@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My cart</title>
+</head>
+<body>
+<h1>Items in your cart</h1>
+<form action="/checkout/{{ amount_payable|floatformat:"0"}}/" method="post">
+    {% csrf_token %}
+  <table border="1">
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price/Unit</th>
+    <th>Amount</th>
+
+    {% for item in cr %}
+    <tr>
+        <td>{{item.1}}</td>
+        <td>1</td>
+        <td>{{item.4}}</td>
+        <td>{{item.4}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>Total Amount Payable during CheckOut</td>
+        <td></td>
+        <td></td>
+        <td>{{amount_payable}}</td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+<a href="/">Continue Shopping</a>
+<br></br>
+<button type="submit" value="checkout" name="checkout">Check Out</button>
+ </form>
+</body>
+</html>

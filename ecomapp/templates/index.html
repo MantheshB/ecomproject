@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+        <h2>List of Products</h2>
+  </head>
+  <body>
+  <form method="post">
+      {% csrf_token %}
+
+        <table border="1">
+
+            <th>pname</th>
+            <th>Image</th>
+            <th>price</th>
+            <th>offer price</th>
+            <th>product description</th>
+            <th>Availability</th>
+            <th>more_info</th>
+
+            {% for c in mylist %}
+
+            <tr>
+                <td>{{c.1}}</td>
+                <td>{{c.2}}</td>
+                <td>{{c.3}}</td>
+                <td>{{c.4}}</td>
+                <td>{{c.5}}</td>
+                <td>{{c.6}}</td>
+
+                <td><a href="/more_info/{{c.0}}">more_info</a></td>
+
+
+
+            </tr>
+
+                  {% endfor %}
+
+        </table>
+      </form>
+  </body>
+
+</html>

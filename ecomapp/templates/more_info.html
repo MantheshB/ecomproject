@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>More Info</title>
+</head>
+<body>
+<form action="/cart/{{mylist.0.0}}/" method="post">
+    {% csrf_token %}
+
+<table border="1">
+    <tr>
+        <td>product name</td>
+        <td>{{mylist.0.1}}</td>
+    </tr>
+    <tr>
+        <td>image</td>
+        <td>{{mylist.0.2}}</td>
+    </tr>
+    <tr>
+        <td>Product Description</td>
+        <td>{{mylist.0.5}}</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>{{mylist.0.3}}</td>
+
+    </tr>
+    <tr>
+        <td>Offer price</td>
+        <td>{{mylist.0.4}}</td>
+    </tr>
+    <tr>
+        <td>Availability</td>
+        <td id="Availability">{{mylist.0.6}}</td>
+    </tr>
+
+
+
+</table>
+
+
+
+
+<br><br>
+
+<button type="submit" name="addtocart" >Add to Cart</button>
+</form>
+<br>
+<br>
+<a href="/">Home</a>
+
+
+</body>
+    <script>
+        var cell=document.getElementById("Availability");
+        var avl=cell.innerTest;
+
+
+        if(avl=='Out of Stock'){
+            document.getElementById("addtocart").style.visibility='hidden';
+            document.getElementById("addtocart").disabled=true;
+}
+    </script>
+
+</html>

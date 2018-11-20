@@ -1,0 +1,36 @@
+"""ecomproject URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from ecomapp.views import Register
+import ecomapp.views
+from ecomapp.views import checkout
+
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',Register,name='Register'),
+    path('more_info/<int:pid>/',ecomapp.views.more_info),
+    path('/cart',ecomapp.views.cart, name='cart'),
+    path('cart',ecomapp.views.cart, name='cart'),
+    path('cart/',ecomapp.views.cart,),
+    path('cart/<int:pid>/',ecomapp.views.cart),
+    path('cart/$',ecomapp.views.cart),
+    path('checkout/<int:amount_payable>/',ecomapp.views.checkout),
+    path('checkout/',checkout,name='checkout'),
+    path('final_checkout/',ecomapp.views.final_checkout,name='fc' )
+]
